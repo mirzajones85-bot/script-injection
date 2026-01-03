@@ -8,7 +8,8 @@ jobs:
     permissions:
       contents: read
       issues: write
-
+      - name: Set GitHub context data as an environment variable
+        run: echo "PR_TITLE=${{ github.event.pull_request.title }}" >> $GITHUB_ENV
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
